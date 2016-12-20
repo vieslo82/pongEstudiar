@@ -1,0 +1,121 @@
+﻿PUPILS INFORMATION
+-------------------
+In case git tools is not present in your system first you should install git tool on linux "sudo apt-get install git-core" and afterwards clone PONG repository (Only do it once)
+
+"git clone https://github.com/pedcremo/pong.git"
+
+Synchronization in order to be project up to date changes (You should perform it every time you start every working session)
+
+git pull https://github.com/pedcremo/pong.git
+
+git branches
+------------
+versio_0 branch
+  A simple ball could be moved in three event triggered ways. Click, double click and keypress
+versio_1 branch
+  A ball with stick bouncing recognition. We play in single player mode
+versio_3 branch
+  Implemented profile form .Nickname and image profile. Nickname as cookie and image in LocalStorage
+versio_4 branch
+  Implemented multi direction ball bouncing. No nice method. bounceController.js
+versio_5 branch
+  Nicer multi direction ball bouncing. Deleted bounceController.js. Added jasmine tests with karma and jsdoc3 for generating documentation automatically
+
+
+GIT USEFUL TUTORIALS FOR NEWBIES
+--------------------------------
+http://try.github.com/   //Codeacademy styled tutorial to be ready in 15 minutes
+http://learn.github.com/p/intro.html
+https://help.github.com/articles/create-a-repo
+
+
+
+STEPS TO CREATE A GITHUB REPOSITORY FROM SCRATCH
+------------------------------------------------
+1. We init our project folder and files locally
+2. From newly createt folder root we run "git init" to create the repository.
+3. Run "git add *" to add all project files to stage area (locally)
+4. At every moment we can run "git status" to know what is inside repository and what not
+5. We'll do 'git commit -a -m "First PONG version"' to consolidate changes on repository and we must explain with a comment why(locally)
+6. We add our git setup to gitHub "git remote add origin https://github.com/pedcremo/pong.git"
+7. Send our local changes to remote repo "git push -u origin master" (-u used to remmber parameters so afterwards w can only command "git push") we will be asked for github user and pass . If we connect to github webpage files will appear there.
+
+TIP: At first it is recommended to perform a pull to synchronize remotely
+"git pull https://github.com/pedcremo/scriptkana.git"
+
+8. If you don't want to be asked at every moment for your credentials
+ git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+
+GIT RECOMMENDED WORKING FLOW
+----------------------------
+Recommended reading http://git-scm.com/book/es/Git-en-entornos-distribuidos-Flujos-de-trabajo-distribuidos
+
+
+1. "git pull" every time we start a new code working session
+2. "git add ." in order to add files modified in the current commit (not mandatory if we do "git commit -a -m "MESSAGE" because -a modifier adds to stage area modified files) and "git add FILE_NAME" to add new files
+3.  To perform a commit always recommended "git commit -a -m 'MESSAGE'" doing a descriptive as possible message.
+4. "git push" ("git push origin master" to upload changes to remote repo.
+
+BASIC BRANCHING AND MERGING
+---------------------------
+https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+
+Basic reference
+---------------
+git status -s
+first column --> shows difference between committed and staged
+second column  --> shows difference between staged and unstaged
+
+
+git diff --> changes between staged and unstaged
+git diff --cached --> diff between committed and staged changes
+git diff HEAD --> diff between committed and unstaged
+--stat --> shorter summary of changes
+
+git commit --> commits all staged changes
+git commit -a --> commits all changes for all tracked files
+
+git reset HEAD -- file-name
+Unstage all staged changes for a file
+
+git rm --> removes file from staging area and also deletes the file
+git rm --cached --> removes the file from staging area but leaving it on the hard disk
+
+git branch --> lists all branches
+git branch branchname -->creates a new branch
+git checkout branchname --> switch to a new branch
+git checkout -b branchname --> create a new branch and shift to it
+git branch -d branchname --> delete a branch
+
+git log
+git log --oneline
+git log --oneline --graph
+git log --oneline branch1 ^branch2 --> logs in branch1 and not in branch2
+
+git tag -a --> add an annotated tag
+git tag -a commit-SHA --> tag a specific commit
+
+git remote --> list remotes
+git remote -v --> list remotes verbosely
+git remote add <remote-name> git@github.com:<username>/<reponame>.git --> add a github remote
+git remote rm remote-name --> delete a remote
+
+git fetch remote-name
+git pull remote-name = git fetch + git merge
+
+HEROKU INFO (https://devcenter.heroku.com/articles/mean-apps-restful-api)
+------------------------------------------------------------------------
+Heroku és el sistema escalable de hosting que hem usat per desplegar de manera còmoda aquest projecte.
+Tan sols cal anar desenvolupant i cada vegada que tinguem una versió estable fem un "git push heroku master" per
+publicar.
+Amb aquest sistema podriem escalar l'aplicació molt fàcilment si el tràfic que generarà ho requerira.
+Simplement ens constaria més diners al ms. Estem usant la regió Europea de heroku per a què la latència d'accés
+siga més curta.
+
+Cal instal·lar "heroku toolbelt" per tindre accés als comandaments que ens permeten gestionar
+aquest sistema de hosting.
+
+"heroku login"  //Iniciem sessió amb el nostre usuari heroku
+"heroku local web" //Desplegament de prova en local
